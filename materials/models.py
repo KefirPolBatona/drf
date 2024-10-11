@@ -35,6 +35,7 @@ class Lesson(models.Model):
         Course,
         on_delete=models.SET_NULL,
         verbose_name="Курс",
+        related_name="lesson",
         **NULLABLE,
     )
 

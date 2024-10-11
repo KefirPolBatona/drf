@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+from materials.models import Course, Lesson
 
 NULLABLE = {"blank": True, "null": True}
 
@@ -38,4 +39,48 @@ class User(AbstractUser):
         permissions = [
             ("сan_block_user", "Сan block user"),
         ]
+        ordering = ['-id']
+
+
+class Payment(models.Model):
+    """
+    Модель платежа.
+    """
+
+    PAYMENT_METHODS = (
+        ("bank transfer", "банковский перевод"),
+        ("cash", "наличные"),
+    )
+
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        verbose_name="Пользователь",
+        related_name="payment",
+        **NULLABLE,
+    )
+    course = models.ForeignKey(
+        Course,
+        on_delete=models.SET_NULL,
+        verbose_name="Курс",
+        related_name="payment",
+        **NULLABLE,
+    )
+    lesson = models.ForeignKey(
+        Lesson,
+        on_delete=models.SET_NULL,
+        verbose_name="Урок",
+        related_name="payment",
+        **NULLABLE,
+    )
+    payment_amount = models.DecimalField(max_digits=9, decimal_places=2, verbose_name="сумма оплаты", **NULLABLE)
+    date_payment = models.DateTimeField(auto_now_add=True, verbose_name="дата и время оплаты", **NULLABLE)
+    payment_method = models.CharField(choices=PAYMENT_METHODS, verbose_name="способ оплаты", **NULLABLE)
+
+    def __str__(self):
+        return f"Оплата {self.payment_amount} за '{self.course if self.course else self.lesson}' ({self.user})"
+
+    class Meta:
+        verbose_name = 'Платеж'
+        verbose_name_plural = 'Платежи'
         ordering = ['-id']
