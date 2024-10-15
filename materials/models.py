@@ -1,5 +1,6 @@
 from django.db import models
 
+from config import settings
 
 NULLABLE = {"blank": True, "null": True}
 
@@ -12,6 +13,12 @@ class Course(models.Model):
     title_course = models.CharField(max_length=250, verbose_name="название курса")
     description_course = models.TextField(verbose_name="описание курса", **NULLABLE)
     image_course = models.ImageField(upload_to="image_course/", verbose_name="превью", **NULLABLE)
+    owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        verbose_name="Владелец",
+        **NULLABLE,
+    )
 
     def __str__(self):
         return self.title_course
@@ -36,6 +43,12 @@ class Lesson(models.Model):
         on_delete=models.SET_NULL,
         verbose_name="Курс",
         related_name="lesson",
+        **NULLABLE,
+    )
+    owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        verbose_name="Владелец",
         **NULLABLE,
     )
 

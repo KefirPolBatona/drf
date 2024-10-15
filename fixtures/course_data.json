@@ -1,0 +1,92 @@
+[
+{
+    "model": "materials.course",
+    "pk": 1,
+    "fields": {
+        "title_course": "1-ый Тест-Курс",
+        "description_course": "Текст-тест",
+        "image_course": "image_course/4.jpg",
+        "owner": null
+    }
+},
+{
+    "model": "materials.course",
+    "pk": 2,
+    "fields": {
+        "title_course": "2-ый Тест-Курс",
+        "description_course": "Текстовое описание",
+        "image_course": "",
+        "owner": null
+    }
+},
+{
+    "model": "materials.course",
+    "pk": 3,
+    "fields": {
+        "title_course": "3-ый Тест-Курс",
+        "description_course": "",
+        "image_course": "",
+        "owner": null
+    }
+},
+{
+    "model": "materials.course",
+    "pk": 4,
+    "fields": {
+        "title_course": "4-ый Тест-Курс",
+        "description_course": "Hoppscotch 44444444444444",
+        "image_course": "",
+        "owner": null
+    }
+},
+{
+    "model": "materials.course",
+    "pk": 6,
+    "fields": {
+        "title_course": "6-ый Тест-Курс Hoppscotch",
+        "description_course": "Hoppscotch 6666666",
+        "image_course": "",
+        "owner": 3
+    }
+},
+{
+    "model": "materials.course",
+    "pk": 7,
+    "fields": {
+        "title_course": "5-ый Тест-Курс Hoppscotch",
+        "description_course": "Hoppscotch 55555",
+        "image_course": "",
+        "owner": 3
+    }
+},
+{
+    "model": "materials.course",
+    "pk": 8,
+    "fields": {
+        "title_course": "8-ый Тест-Курс",
+        "description_course": "Hoppscotch 888",
+        "image_course": "",
+        "owner": 3
+    }
+},
+{
+    "model": "materials.course",
+    "pk": 9,
+    "fields": {
+        "title_course": "9-ый Тест-Курс",
+        "description_course": "Hoppscotch 999",
+        "image_course": "",
+        "owner": 3
+    }
+},
+{
+    "model": "materials.course",
+    "pk": 10,
+    "fields": {
+        "title_course": "10-ый Тест-Курс",
+        "description_course": "Hoppscotch 10",
+        "image_course": "",
+        "owner": 3
+    }
+}
+]

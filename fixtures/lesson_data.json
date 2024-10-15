@@ -1,0 +1,170 @@
+[
+{
+    "model": "materials.lesson",
+    "pk": 1,
+    "fields": {
+        "title_lesson": "1-ый Урок",
+        "description_lesson": "Тестовый текст урока",
+        "image_lesson": "image_lesson/logo.jpg",
+        "link_video": "",
+        "course": 1,
+        "owner": null
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 2,
+    "fields": {
+        "title_lesson": "2-ый Урок (+ изменения)",
+        "description_lesson": "",
+        "image_lesson": "",
+        "link_video": "",
+        "course": 1,
+        "owner": null
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 4,
+    "fields": {
+        "title_lesson": "1-ый Тестовый Урок",
+        "description_lesson": "Тестовое описание",
+        "image_lesson": "",
+        "link_video": "",
+        "course": 2,
+        "owner": null
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 6,
+    "fields": {
+        "title_lesson": "3-ый Тестовый Урок",
+        "description_lesson": "Тестовое описание",
+        "image_lesson": "",
+        "link_video": "",
+        "course": 2,
+        "owner": null
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 7,
+    "fields": {
+        "title_lesson": "4-ый Тестовый Урок",
+        "description_lesson": "Тестовое описание",
+        "image_lesson": "",
+        "link_video": "",
+        "course": 2,
+        "owner": null
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 8,
+    "fields": {
+        "title_lesson": "5-ый Тестовый Урок",
+        "description_lesson": "Тестовое описание",
+        "image_lesson": "",
+        "link_video": "",
+        "course": 2,
+        "owner": null
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 9,
+    "fields": {
+        "title_lesson": "3-ый Тестовый Урок",
+        "description_lesson": "Тестовое описание",
+        "image_lesson": "",
+        "link_video": "",
+        "course": 1,
+        "owner": null
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 10,
+    "fields": {
+        "title_lesson": "4-ый Тестовый Урок",
+        "description_lesson": "Тестовое описание 121212",
+        "image_lesson": "",
+        "link_video": "",
+        "course": 1,
+        "owner": null
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 13,
+    "fields": {
+        "title_lesson": "5-ый Тестовый Урок",
+        "description_lesson": "Тестовое описание 5555",
+        "image_lesson": "",
+        "link_video": null,
+        "course": 2,
+        "owner": null
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 14,
+    "fields": {
+        "title_lesson": "6-ый Тестовый Урок",
+        "description_lesson": "Тестовое описание 6666",
+        "image_lesson": "",
+        "link_video": null,
+        "course": 1,
+        "owner": null
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 15,
+    "fields": {
+        "title_lesson": "7-ый Тестовый Урок",
+        "description_lesson": "Тестовое описание 77777",
+        "image_lesson": "",
+        "link_video": null,
+        "course": 1,
+        "owner": null
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 16,
+    "fields": {
+        "title_lesson": "8-ый Тестовый Урок",
+        "description_lesson": "Тестовое описание 88888",
+        "image_lesson": "",
+        "link_video": null,
+        "course": 1,
+        "owner": null
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 17,
+    "fields": {
+        "title_lesson": "9-ый Тестовый Урок",
+        "description_lesson": "Тестовое описание 9999",
+        "image_lesson": "",
+        "link_video": null,
+        "course": null,
+        "owner": null
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 18,
+    "fields": {
+        "title_lesson": "10-ый Тестовый Урок",
+        "description_lesson": "Тестовое описание 13131313",
+        "image_lesson": "",
+        "link_video": null,
+        "course": null,
+        "owner": 3
+    }
+}
+]
