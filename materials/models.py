@@ -60,3 +60,30 @@ class Lesson(models.Model):
         verbose_name_plural = 'Уроки'
         ordering = ['-id']
 
+
+class Subscription(models.Model):
+    """
+    Модель подписки.
+    """
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        verbose_name="Пользователь",
+        related_name="subscription",
+        **NULLABLE,
+    )
+    course = models.ForeignKey(
+        Course,
+        on_delete=models.SET_NULL,
+        verbose_name="Курс",
+        related_name="subscription",
+        **NULLABLE,
+    )
+
+    def __str__(self):
+        return f"Подписка: {self.pk}, курс: {self.course}, подписчик: {self.user}"
+
+    class Meta:
+        verbose_name = "Подписка"
+        verbose_name_plural = "Подписки"
