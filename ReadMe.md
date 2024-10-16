@@ -9,13 +9,18 @@
 ### Установка
 
 Клонировать репозиторий.
+
 Настроить и активировать виртуальное окружение.
+
 Установить зависимости:
 * pip install -r requirements.txt.
+* 
 Создать и подключиться к БД.
+
 Создать и применить миграции:
 * python manage.py makemigrations
 * python manage.py migrate
+
 Заполнить БД: 
 * python manage.py loaddata data.json
 
