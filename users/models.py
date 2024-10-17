@@ -76,6 +76,8 @@ class Payment(models.Model):
     payment_amount = models.DecimalField(max_digits=9, decimal_places=2, verbose_name="сумма оплаты", **NULLABLE)
     date_payment = models.DateTimeField(auto_now_add=True, verbose_name="дата и время оплаты", **NULLABLE)
     payment_method = models.CharField(choices=PAYMENT_METHODS, verbose_name="способ оплаты", **NULLABLE)
+    session_id = models.CharField(max_length=255, verbose_name="ID сессии", **NULLABLE)
+    link = models.URLField(max_length=400, verbose_name="ссылка на оплату", **NULLABLE)
 
     def __str__(self):
         return f"Оплата {self.payment_amount} за '{self.course if self.course else self.lesson}' ({self.user})"
