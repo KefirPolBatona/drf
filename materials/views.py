@@ -12,6 +12,7 @@ from materials.serializers import CourseSerializer, LessonSerializer, Subscripti
 class CourseViewSet(viewsets.ModelViewSet):
     serializer_class = CourseSerializer
     queryset = Course.objects.all()
+    pagination_class = MaterialsPagination
 
     def get_permissions(self):
         """
