@@ -26,6 +26,7 @@ class User(AbstractUser):
         **NULLABLE,
         default=False
     )
+    last_login = models.DateTimeField(verbose_name="Дата последнего входа", **NULLABLE)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []

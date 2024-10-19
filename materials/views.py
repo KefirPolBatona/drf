@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+
 from rest_framework import viewsets, generics, views
 from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import IsAuthenticated
@@ -7,6 +9,8 @@ from materials.models import Course, Lesson, Subscription
 from materials.paginators import MaterialsPagination
 from materials.permissons import IsModerator, IsOwner
 from materials.serializers import CourseSerializer, LessonSerializer, SubscriptionSerializer
+
+from materials.tasks import send_mail_update_course
 
 
 class CourseViewSet(viewsets.ModelViewSet):
@@ -31,10 +35,20 @@ class CourseViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         """
+        Создает новый курс.
         Привязывает пользователя к создаваемому им курсу.
         """
 
         serializer.save(owner=self.request.user)
+
+    def perform_update(self, serializer):
+        """
+        Обновляет курс.
+        Запускает функцию отправки сообщения подписчикам курса.
+        """
+
+        course = serializer.save()
+        send_mail_update_course(course.pk)
 
 
 class LessonCreateAPIView(generics.CreateAPIView):
@@ -66,6 +80,14 @@ class LessonUpdateAPIView(generics.UpdateAPIView):
     queryset = Lesson.objects.all()
     permission_classes = [IsAuthenticated, IsModerator | IsOwner]
 
+    def perform_update(self, serializer):
+        """
+        Запускает функцию отправки сообщения подписчикам курса при обновлении урока.
+        """
+
+        lesson = serializer.save()
+        send_mail_update_course.delay(lesson.course_id)
+
 
 class LessonDestroyAPIView(generics.DestroyAPIView):
     queryset = Lesson.objects.all()
@@ -94,3 +116,9 @@ class SubscriptionAPIView(views.APIView):
             message = 'подписка создана'
 
         return Response({"message": message})
+
+
+class SubscriptionListAPIView(generics.ListAPIView):
+    serializer_class = SubscriptionSerializer
+    queryset = Subscription.objects.all()
+

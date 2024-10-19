@@ -13,6 +13,8 @@ class Course(models.Model):
     title_course = models.CharField(max_length=250, verbose_name="название курса")
     description_course = models.TextField(verbose_name="описание курса", **NULLABLE)
     image_course = models.ImageField(upload_to="image_course/", verbose_name="превью", **NULLABLE)
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата последнего изменения")
+
     owner = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.SET_NULL,
@@ -38,6 +40,8 @@ class Lesson(models.Model):
     description_lesson = models.TextField(verbose_name="описание урока", **NULLABLE)
     image_lesson = models.ImageField(upload_to="image_lesson/", verbose_name="превью", **NULLABLE)
     link_video = models.URLField(max_length=350, verbose_name="ссылка на видео", **NULLABLE)
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата последнего изменения")
+
     course = models.ForeignKey(
         Course,
         on_delete=models.SET_NULL,
